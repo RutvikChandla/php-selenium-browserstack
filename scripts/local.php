@@ -16,13 +16,16 @@
     # Check if BrowserStack local instance is running
     echo $bs_local->isRunning();
     $caps = array(
-        "browserName" => "iPhone",
-        "device" => "iPhone 11",
-        "realMobile" => "true",
-        "os_version" => "14.0",
-        "browserstack.local" => "true",
-        "name" => "BStack-[Php] Sample Test", // test name
-        "build" => "BStack Build Number 1" // CI/CD job or build name
+        'bstack:options' => array(
+            "os" => "OS X",
+            "osVersion" => "Sierra",
+            "buildName" => "Final-Snippet-Test",
+            "sessionName" => "Selenium-4 PHP snippet test",
+            "local" => "true",
+            "seleniumVersion" => "4.0.0",
+        ),
+        "browserName" => "Chrome",
+        "browserVersion" => "latest",
     );
     $web_driver = RemoteWebDriver::create("https://USERNAME:ACCESS_KEY@hub-cloud.browserstack.com/wd/hub",$caps);
     try{
